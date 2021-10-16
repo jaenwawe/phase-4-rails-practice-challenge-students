@@ -4,4 +4,8 @@ Rails.application.routes.draw do
   post 'instructors/', to: 'instructors#create'
   patch 'instructors/:id', to: 'instructors#update'
   delete 'instructors/:id', to: 'instructors#destroy'
+
+#CRUD for students 
+ resources :students, except: :show
 end
+

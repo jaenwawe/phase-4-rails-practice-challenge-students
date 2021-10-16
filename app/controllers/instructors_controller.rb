@@ -17,15 +17,16 @@ class InstructorsController < ApplicationController
     found_instructor=Instructor.find_by(id: params[:id])
     if !!found_instructor
       found_instructor.update(name: params[:name])
+      render json: {message: "Index  #{[:id]} modified"}
     else
       render json: {error: "Could not find index #{[:id]}"}
     end
   end
 
    def destroy
-    found_instructor=Instructor.find_by(id: params[:id])
-    if !!found_instructor
-      found_instructor.destroy
+    removable_instructor=Instructor.find_by(id: params[:id])
+    if !!removable_instructor
+      removable_instructor.destroy
       render json: {message: "Index  #{[:id]} deleted"}
     else
       render json: {error: "Could not find index #{[:id]}"}
